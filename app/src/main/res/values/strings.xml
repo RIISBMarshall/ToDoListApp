@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">To Do List</string>
+    <string name="reminderText">Reminder</string>
+    <string name="dateText">Date</string>
+    <string name="timeText">Time</string>
+    <string name="submit">Submit</string>
+    <string name="title">Title</string>
+    <string name="startDate">Start Date</string>
+    <string name="startTime">Start Time</string>
+    <string name="dueDate">Due Date</string>
+    <string name="dueTime">Due Time</string>
+    <string name="completeItem">Complete</string>
+    <string name="setIncomplete">Incomplete</string>
+    <string name="deleteButton">Delete</string>
+    <string name="editButton">Edit</string>
+    <string name="reminders">Reminders</string>
+
+    <array name="reminder_times">
+        <item>no reminder</item>
+        <item>1 hour before</item>
+        <item>2 hours before</item>
+        <item>3 hours before</item>
+        <item>4 hours before</item>
+        <item>5 hours before</item>
+        <item>6 hours before</item>
+        <item>7 hours before</item>
+        <item>8 hours before</item>
+        <item>9 hours before</item>
+        <item>10 hours before</item>
+        <item>11 hours before</item>
+        <item>12 hours before</item>
+        <item>13 hours before</item>
+        <item>14 hours before</item>
+        <item>15 hours before</item>
+        <item>16 hours before</item>
+        <item>17 hours before</item>
+        <item>18 hours before</item>
+        <item>19 hours before</item>
+        <item>20 hours before</item>
+        <item>21 hours before</item>
+        <item>22 hours before</item>
+        <item>23 hours before</item>
+        <item>24 hours before</item>
+    </array>
+</resources>
