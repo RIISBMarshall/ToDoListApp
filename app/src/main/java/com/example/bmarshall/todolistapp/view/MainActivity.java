@@ -24,8 +24,6 @@ import net.sqlcipher.database.SQLiteException;
 
 public class MainActivity extends AppCompatActivity {
 
-    //NEED TO INSERT RECORDS AND TEST THIS UI
-
     private int currentSelectedItem;
     private SimpleDateFormat dueDateFormat;
     private ListView toDoListView;
@@ -41,11 +39,13 @@ public class MainActivity extends AppCompatActivity {
 
         final Controller controller = (Controller) getApplicationContext();
 
-        dueDateFormat = new SimpleDateFormat("dd MMM yyyy hh:mm", Locale.getDefault());
-
         //Instantiate Views
         toDoListView = (ListView) findViewById(R.id.toDo_list);
         reminderListView = (ListView) findViewById(R.id.reminderList);
+
+        //controller.insertToDoItem("testing it", "10 Jan 2017", "20 Jan 2017", false);
+
+        //controller.insertReminder(6, "10 Jan 2017");
 
         showToDoItems(controller);
 
@@ -74,14 +74,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void showReminders(Controller controller){
         reminderAdapter = new SimpleCursorAdapter(MainActivity.this, android.R.layout.simple_list_item_1,
-                controller.getReminders(), new String[]{"_id", "REMINDER_DATE"}, new int[]{android.R.id.text1});
+                controller.getReminders(), new String[]{"REMINDER_DATE"}, new int[]{android.R.id.text1});
 
         reminderListView.setAdapter(reminderAdapter);
     }
 
     //Set method to handle clicks on the add item button
-    /*public void onClickAddItem(View view) {
+    public void onClickAddItem(View view) {
         Intent intent = new Intent(MainActivity.this, AddItemActivity.class);
         startActivity(intent);
-    }*/
+    }
 }

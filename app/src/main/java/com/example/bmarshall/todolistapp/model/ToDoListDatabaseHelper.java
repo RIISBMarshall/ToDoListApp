@@ -41,25 +41,34 @@ public class ToDoListDatabaseHelper extends SQLiteOpenHelper {
                 + "REMINDER_DATE DATE);");
     }
 
-    public static void insertItem(SQLiteDatabase db, String title,
-                                  String startDate, String dueDate, boolean isComplete) {
-        ContentValues toDoItemValues = new ContentValues();
-        toDoItemValues.put("TITLE", title);
-        toDoItemValues.put("START_DATE", startDate);
-        toDoItemValues.put("DUE_DATE", dueDate);
-        toDoItemValues.put("IS_COMPLETE", isComplete);
-        db.insert("TODOITEM", null, toDoItemValues);
-    }
-
-    public static void insertReminder(SQLiteDatabase db, int ItemId, String reminderDate) {
-        ContentValues reminderValues = new ContentValues();
-        reminderValues.put("_id", ItemId);
-        reminderValues.put("REMINDER_DATE", reminderDate);
-        db.insert("REMINDER", null, reminderValues);
-    }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    }
+
+    public void insertToDoItem(String title, String startDate, String dueDate, boolean isComplete) {
+        try {
+            db = getReadableDatabase("password");
+            ContentValues toDoItemValues = new ContentValues();
+            toDoItemValues.put("TITLE", title);
+            toDoItemValues.put("START_DATE", startDate);
+            toDoItemValues.put("DUE_DATE", dueDate);
+            toDoItemValues.put("IS_COMPLETE", isComplete);
+            db.insert("TODOITEM", null, toDoItemValues);
+        } catch (SQLiteException e) {
+            System.out.println(e.toString());
+        }
+    }
+
+    public void insertReminder(int ItemId, String reminderDate) {
+        try {
+            db = getReadableDatabase("password");
+            ContentValues reminderValues = new ContentValues();
+            reminderValues.put("_id", ItemId);
+            reminderValues.put("REMINDER_DATE", reminderDate);
+            db.insert("REMINDER", null, reminderValues);
+        } catch (SQLiteException e) {
+            System.out.println(e.toString());
+        }
     }
 
     public Cursor getToDoItems() {
