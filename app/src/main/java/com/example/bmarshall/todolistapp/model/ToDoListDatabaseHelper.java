@@ -82,6 +82,17 @@ public class ToDoListDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public Cursor getToDoItem(int id) {
+        try {
+            db = getReadableDatabase("password");
+            return db.query("TODOITEM", new String[]{"TITLE", "START_DATE", "DUE_DATE", "IS_COMPLETE"},
+                    "_id = ?", new String[] {String.valueOf(id)}, null, null, null);
+        } catch (SQLiteException e) {
+            System.out.println(e.toString());
+            return null;
+        }
+    }
+
     public Cursor getReminders() {
         try {
             db = getReadableDatabase("password");

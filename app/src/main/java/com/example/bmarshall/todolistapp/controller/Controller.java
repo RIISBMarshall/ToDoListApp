@@ -26,6 +26,7 @@ public class Controller extends Application {
         toDoListDatabaseHelper = new ToDoListDatabaseHelper(this);
     }
 
+    //======================Cursor Methods=======================
     public Cursor getToDoItems(){
             return toDoListDatabaseHelper.getToDoItems();
     }
@@ -34,7 +35,16 @@ public class Controller extends Application {
         return toDoListDatabaseHelper.getReminders();
     }
 
-    public void insertToDoItem(String title, String startDate, String dueDate, boolean isComplete){
+    public Cursor getToDoItem(int id){
+        return toDoListDatabaseHelper.getToDoItem(id);
+    }
+
+    public ToDoItem
+    //===========================================================
+
+    //=============================Void Methods=======================================
+    public void insertToDoItem(String title, String startDate, String dueDate,
+                               boolean isComplete){
         toDoListDatabaseHelper.insertToDoItem(title, startDate, dueDate, isComplete);
     }
 
@@ -70,14 +80,26 @@ public class Controller extends Application {
         toDoItem.setDueTime(hourOfDay, minute);
     }
 
+    public void changeItemCompletionStatus() {
+        toDoItem.changeCompletionStatus();
+    }
+    //===================================================================================
+
+    //============Boolean Methods================
+
     public boolean getItemDueDateIsSet() {
         return toDoItem.getDueDateIsSet();
     }
+    //===========================================
 
+
+    //==============String Methods===============
     public String getItemTitle() {
         return toDoItem.getTitle();
     }
+    //===========================================
 
+    //==============Date Methods=================
     public Date getStartDate() {
         return toDoItem.getStartDate();
     }
@@ -85,8 +107,5 @@ public class Controller extends Application {
     public Date getDueDate() {
         return toDoItem.getDueDate();
     }
-
-    public void changeItemCompletionStatus() {
-        toDoItem.changeCompletionStatus();
-    }
+    //===========================================
 }

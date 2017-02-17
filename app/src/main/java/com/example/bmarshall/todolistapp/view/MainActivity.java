@@ -39,13 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
         final Controller controller = (Controller) getApplicationContext();
 
-        //Instantiate Views
         toDoListView = (ListView) findViewById(R.id.toDo_list);
         reminderListView = (ListView) findViewById(R.id.reminderList);
-
-        //controller.insertToDoItem("testing it", "10 Jan 2017", "20 Jan 2017", false);
-
-        //controller.insertReminder(6, "10 Jan 2017");
 
         showToDoItems(controller);
 
@@ -61,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         toDoListView.setAdapter(toDoItemAdapter);
 
-        /*toDoListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        toDoListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, ViewItemActivity.class);
@@ -69,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(ViewItemActivity.EXTRA_ITEMNO, currentSelectedItem);
                 startActivity(intent);
             }
-        });*/
+        });
     }
 
     public void showReminders(Controller controller){
